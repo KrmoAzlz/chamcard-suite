@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>إدارة العملاء | ChamCard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo"><div class="logo-icon">C</div><span>ChamCard</span></div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html">لوحة التحكم</a></li>
+            <li><a href="transactions.html">العمليات</a></li>
+            <li><a href="accounting.html">المحاسبة</a></li>
+            <li><a href="customers.html" class="active">العملاء</a></li>
+            <li><a href="cards.html">البطاقات</a></li>
+            <li><a href="validators.html">أجهزة الباص</a></li>
+            <li><a href="audit.html">سجل التدقيق</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>إدارة حسابات العملاء</h1>
+        </header>
+
+        <div style="margin-bottom: 25px; display: flex; gap: 10px;">
+            <input type="text" id="searchQuery" placeholder="بحث بالاسم أو الهاتف..." style="flex: 1; max-width: 400px;">
+            <button class="btn btn-primary" onclick="searchCustomers()">بحث</button>
+        </div>
+
+        <div class="card-container">
+            <table id="customerTable">
+                <thead>
+                    <tr>
+                        <th>المعرف</th>
+                        <th>الاسم</th>
+                        <th>الهاتف</th>
+                        <th>الرصيد</th>
+                        <th>الحالة</th>
+                        <th>إجراءات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="6" style="text-align: center; padding: 40px; color: var(--text-secondary);">استخدم البحث للوصول للعميل</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        window.onload = checkAuth;
+    </script>
+</body>
+</html>

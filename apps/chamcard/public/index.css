@@ -1,0 +1,53 @@
+
+/* Global Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Leaflet Fixes */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  background: #f1f5f9;
+}
+
+/* Custom Marker Fix */
+.user-marker {
+  background: none;
+  border: none;
+}
+
+.user-marker-inner {
+  width: 24px;
+  height: 24px;
+  background: #10b981; /* Emerald Green for better visibility */
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+  position: relative;
+  z-index: 2;
+}
+
+.user-marker-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  background: rgba(16, 185, 129, 0.25);
+  border-radius: 50%;
+  animation: pulse-ring 2.5s infinite;
+  z-index: 1;
+}
+
+@keyframes pulse-ring {
+  0% { transform: translate(-50%, -50%) scale(0.4); opacity: 0.8; }
+  80%, 100% { transform: translate(-50%, -50%) scale(1.8); opacity: 0; }
+}

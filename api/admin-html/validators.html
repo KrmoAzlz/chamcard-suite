@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>أجهزة الباص | ChamCard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo"><div class="logo-icon">C</div><span>ChamCard</span></div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html">لوحة التحكم</a></li>
+            <li><a href="validators.html" class="active">أجهزة الباص</a></li>
+            <li><a href="audit.html">سجل التدقيق</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>حالة أجهزة التحقق الميدانية</h1>
+        </header>
+
+        <div class="stats-grid" id="validatorsGrid">
+            <!-- سيتم تعبئتها عبر JS -->
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        async function loadValidators() {
+            const data = await apiRequest('/admin/validators');
+            const grid = document.getElementById('validatorsGrid');
+            if (!data || !grid) return;
+
+            grid.innerHTML = data.map(v => `
+                <div class="stat-card">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+                        <span class="badge ${v.status === 'ONLINE' ? 'badge-success' : 'badge-danger'}">${v.status}</span>
+                        <span class="label">ID: ${v.id}</span>
+                    </div>
+                    <span class="value" style="font-size: 1.1rem;">${v.name}</span>
+                    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-secondary);">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>دخل اليوم:</span>
+                            <span style="color: white; font-weight: 700;">${v.todayIncome.toLocaleString()} ل.س</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>آخر اتصال:</span>
+                            <span>${v.lastSync}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        window.onload = async () => {
+            if (await checkAuth()) loadValidators();
+        };
+    </script>
+</body>
+</html>

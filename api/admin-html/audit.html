@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>سجل التدقيق | ChamCard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo"><div class="logo-icon">C</div><span>ChamCard</span></div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html">لوحة التحكم</a></li>
+            <li><a href="audit.html" class="active">سجل التدقيق</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>سجل المراقبة الإدارية</h1>
+        </header>
+
+        <div class="card-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>المسؤول</th>
+                        <th>الإجراء</th>
+                        <th>الهدف</th>
+                        <th>السبب</th>
+                        <th>IP</th>
+                        <th>التوقيت</th>
+                    </tr>
+                </thead>
+                <tbody id="auditTable">
+                    <tr><td colspan="6" style="text-align: center; padding: 40px; color: var(--text-secondary);">جاري التحميل...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        window.onload = async () => {
+            if (await checkAuth()) loadAuditLogs();
+        };
+    </script>
+</body>
+</html>

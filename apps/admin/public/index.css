@@ -1,0 +1,5 @@
+/* Optional static CSS loaded by index.html.
+   Keep this file so /index.css exists in production builds.
+   Tailwind is loaded via CDN in this MVP; put any small overrides here. */
+
+html, body { height: 100%; }

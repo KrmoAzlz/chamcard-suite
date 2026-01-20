@@ -1,0 +1,20 @@
+{
+  "name": "chamcard-suite",
+  "private": true,
+  "workspaces": [
+    "api",
+    "apps/chamcard",
+    "apps/validator",
+    "apps/admin"
+  ],
+  "scripts": {
+    "install:all": "npm install --workspaces",
+    "dev": "concurrently -k -n API,CHAMCARD,VALIDATOR,ADMIN -c auto \"npm --workspace api run dev\" \"npm --workspace apps/chamcard run dev -- --port 5173\" \"npm --workspace apps/validator run dev -- --port 5174\" \"npm --workspace apps/admin run dev -- --port 5175\"",
+    "build": "npm --workspace apps/chamcard run build && npm --workspace apps/validator run build && npm --workspace apps/admin run build",
+    "start:api": "npm --workspace api start",
+    "start": "npm --workspace api start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

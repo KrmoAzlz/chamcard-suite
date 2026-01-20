@@ -1,0 +1,5 @@
+{
+  "name": "ChamCard Admin Dashboard",
+  "description": "A production-ready, secure administration panel for ChamCard with RTL support, RBAC, and real-time monitoring of transactions, customers, and fraud detection.",
+  "requestFramePermissions": []
+}

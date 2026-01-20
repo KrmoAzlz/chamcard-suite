@@ -1,0 +1,19 @@
+{
+  "config": {
+    "defaultFareId": "FARE-STD",
+    "fares": {
+      "FARE-STD": {
+        "id": "FARE-STD",
+        "name": "تعرفة عادية",
+        "amount": 2000
+      }
+    }
+  },
+  "validators": {},
+  "cards": {},
+  "customers": {},
+  "transactions": [],
+  "payouts": [],
+  "events": [],
+  "audit": []
+}

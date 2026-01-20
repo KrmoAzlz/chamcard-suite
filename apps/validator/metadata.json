@@ -1,0 +1,8 @@
+
+{
+  "name": "Bus Validator Simulator",
+  "description": "A high-fidelity bus validator interface simulator with dynamic QR codes, NFC tap simulation, and offline-first transaction queueing.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
